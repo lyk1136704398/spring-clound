@@ -1,0 +1,17 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.samsung.dao.UserDao">
+	<insert id="creat" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+		insert into user(name,birthday,money) values(#{name},#{birthday},#{money})
+	</insert>
+	<resultMap id="BaseResultMap" type="com.samsung.entities.User">
+		<id column="id" property="id" jdbcType="BIGINT"/>
+		<id column="name" property="name" jdbcType="BIGINT"/>
+		<id column="birthday" property="birthday" jdbcType="BIGINT"/>
+		<id column="money" property="money" jdbcType="BIGINT"/>
+	</resultMap>
+    <select id="getUserById" parameterType="Long" resultMap="BaseResultMap">
+		select * from user where id=#{id}
+	</select>
+</mapper>
